@@ -1,0 +1,32 @@
+id: 'googleMap_Sweden'
+style: 'height:300px;width:100%;'
+class: ''
+data:
+  center:
+    geocode: Sweden
+  zoom: 3
+  scrollwheel: true
+  draggable: true
+  mapTypeId_example1: 'SATELLITE'
+  mapTypeId: 'ROADMAP'
+  marker:
+    -
+      position: 
+        geocode: Stockholm
+      window: 
+        content: '<h4>Stockholm by night.</h4>'
+      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    -
+      position:
+        lat: 56.6784827
+        lng: 12.8520437
+      title: 'Halmstad'
+      window:
+        content: '<h4>Halmstad is a small town.</h4>'
+        show: true
+  gpx:
+    -
+      url: /theme/wf/hellocompany/gpx/RK_gpx_2016-08-13_1201.gpx.txt
+    -
+      url: /theme/wf/hellocompany/gpx/RK_gpx_2016-05-21_1444.gpx.txt
+
