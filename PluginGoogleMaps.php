@@ -1,7 +1,7 @@
 <?php
 /**
 <p>
-Google map
+Google maps.
 </p>
 <p>
 Use the include widget only one time with your Google API Key. Then use multiple map widgets. One can omit data/marker if no marker is needed. Go to https://code.google.com/apis/console for your key.
