@@ -88,12 +88,15 @@ function plugin_google_maps(){
     var marker = new google.maps.Marker({
       position: marker_data.latlng,
       title: marker_data.title,
-      draggable: marker_data.draggable
+      draggable: marker_data.draggable,
+      label: marker_data.label
     });
     if(marker_data.icon){
+      /**
+       * http://maps.google.com/mapfiles/ms/icons/green-dot.png
+       */
       marker.setIcon(marker_data.icon);
     }
-    //marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
     marker.setMap(map);
     // Popup
     if(marker_data.window && marker_data.window.content){
