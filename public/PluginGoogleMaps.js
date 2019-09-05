@@ -2,13 +2,18 @@ function plugin_google_maps(){
   var self = this;
   var data = null;
   var map = 'ddd';
+  this.bounds = null;
   this.getMap = function(){return map;}
-  /**
-   * Load map.
-   * @param {type} data
-   * @returns {undefined}
-   */
   this.load = function(data){
+    /**
+     * If no center data.
+     */
+    if(!data.data.center.geocode && !data.data.center.lat){
+      data.data.center.geocode = 'Sweden';
+    }
+    /**
+     * 
+     */
     if(data.data.center.geocode){
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode( { 'address': data.data.center.geocode}, function(results, status) {
@@ -21,7 +26,7 @@ function plugin_google_maps(){
         }
       });
       return 222;
-    }else{
+    }else if(data.data.center.lat && data.data.center.lng){
       data.data.latlng = new google.maps.LatLng(data.data.center.lat, data.data.center.lng);
       return this.set(data);
     }
@@ -50,10 +55,26 @@ function plugin_google_maps(){
       map.addListener('maptypeid_changed', function(){data.onchange('center_changed', map);});
       map.addListener('zoom_changed',      function(){data.onchange('center_changed', map);});
     }
-    // Marker
+    /**
+     * Bounds start.
+     */
+    self.bounds = new google.maps.LatLngBounds();
+    /**
+     * Markers
+     */
     this.setMarkers(data, map);
+    /**
+     * Bounds end.
+     */
+    if(data.data.marker.length && data.data.LatLngBounds){
+      //map.fitBounds(self.bounds);       // auto-zoom
+      map.zoom = parseInt(data.data.zoom);
+      map.panToBounds(self.bounds);     // auto-center    
+    }
+    /**
+     * 
+     */
     this.setPath(data, map);
-    //return map;
     self.map = map;
   }
   this.setMarkers = function(data, map){
@@ -82,6 +103,7 @@ function plugin_google_maps(){
     }else{
       marker_data.latlng = new google.maps.LatLng(marker_data.position.lat, marker_data.position.lng);
       this.setMarkerAfterLatLng(marker_data, map);
+      self.bounds.extend(marker_data.latlng);
     }
   }
   this.setMarkerAfterLatLng = function(marker_data, map){

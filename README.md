@@ -48,6 +48,8 @@ Set param data/marker/-/window/content to any html and the content will show upp
 #### GPX
 Add multiple paths via gpx files by including param data/gpx.
 
+#### LatLngBounds
+Set to true to let map center on markers.
 
 ```
 type: widget
@@ -69,6 +71,7 @@ data:
       draggable: true
       mapTypeId: SATELLITE
       mapTypeId_example1: ROADMAP
+      LatLngBounds: true
       marker:
         -
           position:
@@ -78,4 +81,6 @@ data:
             content: '<span style="color:black">HTML</span>'
             show: true
 ```
+
+
 
