@@ -5,7 +5,7 @@ class PluginGoogleMaps{
     wfPlugin::includeonce('wf/array');
     $data = new PluginWfArray($data['data']);
     $data->set('google_api_key', wfSettings::getSettingsFromYmlString($data->get('google_api_key')));
-    $script_google = wfDocument::createHtmlElement('script', null, array('type' => 'text/javascript', 'src' => '//maps.googleapis.com/maps/api/js?language='.$language.'&key='.$data->get('google_api_key').'&libraries=places', 'async' => null, 'defer' => null));
+    $script_google = wfDocument::createHtmlElement('script', null, array('type' => 'text/javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?language='.$language.'&key='.$data->get('google_api_key').'&libraries=places', 'async' => null, 'defer' => null));
     $script_plugin = wfDocument::createHtmlElement('script', null, array('type' => 'text/javascript', 'src' => '/plugin/google/maps/PluginGoogleMaps.js?t='.wfFilesystem::getFiletime(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/google/maps/public/PluginGoogleMaps.js')));
     wfDocument::renderElement(array($script_google, $script_plugin));
   }

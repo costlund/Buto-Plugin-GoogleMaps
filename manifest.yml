@@ -1,7 +1,12 @@
-version: '1.0'
+version: 1.1.0
 history:
-  '1.0':
+  1.1.0:
+    date: '2021-11-09'
+    title: 'HTTPS' 
+    description: 'Add explicit https in include widget.'
+  1.0.0:
     date: '2019-08-27'
+    title: 'Manifest' 
     description: 'Manifest created.'
 plugin:
   -
