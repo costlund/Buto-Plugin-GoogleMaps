@@ -16,7 +16,7 @@ class PluginGoogleMaps{
     if(wfRequest::get('_time')){
       $script_map = wfDocument::createHtmlElement('script', "PluginGoogleMaps.load(".json_encode($data->get()).");", array('type' => 'text/javascript'));
     }else{
-      $script_map = wfDocument::createHtmlElement('script', "$(function(){ $(window).load(function(){ PluginGoogleMaps.load(".json_encode($data->get())."); }); });", array('type' => 'text/javascript'));
+      $script_map = wfDocument::createHtmlElement('script', "$( document ).ready(function() { setTimeout(function(){PluginGoogleMaps.load(".json_encode($data->get()).");}, 1000)  ;});", array('type' => 'text/javascript'));
     }
     wfDocument::renderElement(array($div_map, $script_map));
   }
