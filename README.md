@@ -1,18 +1,8 @@
 # Buto-Plugin-GoogleMaps
-
-
-Google maps.
-
 Use the include widget only one time with your Google API Key. Then use multiple map widgets. One can omit data/marker if no marker is needed. Go to https://code.google.com/apis/console for your key.
 
-
-
-
 ## Include Javascript
-
 Include Google Map resorce js file with the api key and the plugin js file. Edit param google_api_key with your key.
-
-
 ```
 type: widget
 data:
@@ -20,6 +10,11 @@ data:
   method: include
   data:
     google_api_key: _my_google_api_key_
+```
+
+### Callback
+```
+    callback: any_method_when_maps_library_is_loaded
 ```
 
 ## Map widget

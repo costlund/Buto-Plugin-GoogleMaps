@@ -1,0 +1,15 @@
+-
+  type: script
+  attribute:
+    type: text/javascript
+    src: rs:url_google
+    async: null
+    defer: null
+-
+  type: script
+  attribute:
+    type: text/javascript
+    src: rs:url_plugin
+-
+  type: script
+  innerHTML: "function plugin_google_maps_callback(){console.log('PluginGoogleMaps says: No callback is provided!');}"
