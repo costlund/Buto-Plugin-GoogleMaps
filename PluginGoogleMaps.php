@@ -12,7 +12,7 @@ class PluginGoogleMaps{
      * urls
      */
     $data->set('url_google', 'https://maps.googleapis.com/maps/api/js?language='.$language.'&key='.$data->get('google_api_key').'&callback='.$data->get('callback').'&libraries=places');
-    $data->set('url_plugin', '/plugin/google/maps/PluginGoogleMaps.js?t='.wfFilesystem::getFiletime(wfArray::get($GLOBALS, 'sys/app_dir').'/plugin/google/maps/public/PluginGoogleMaps.js'));
+    $data->set('url_plugin', '/plugin/google/maps/PluginGoogleMaps.js?t='.wfFilesystem::getFiletime( wfGlobals::getWebDir().'/plugin/google/maps/PluginGoogleMaps.js'));
     /**
      * element
      */
