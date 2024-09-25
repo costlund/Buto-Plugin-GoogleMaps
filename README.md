@@ -1,53 +1,57 @@
 # Buto-Plugin-GoogleMaps
-Use the include widget only one time with your Google API Key. Then use multiple map widgets. One can omit data/marker if no marker is needed. Go to https://code.google.com/apis/console for your key.
 
-## Include Javascript
-Include Google Map resorce js file with the api key and the plugin js file. Edit param google_api_key with your key.
-```
-type: widget
+<p>Use the include widget only one time with your Google API Key. 
+Then use multiple map widgets. 
+One can omit data/marker if no marker is needed. 
+Go to <a href="https://code.google.com/apis/console">https://code.google.com/apis/console</a> for your key.
+Support pic position via a form.</p>
+
+<a name="key_0"></a>
+
+## Usage
+
+
+
+<a name="key_0_0"></a>
+
+### Form
+
+<p>Only add this js to transfer an input to a position picker.</p>
+<pre><code>PluginGoogleMaps.doInputToMapLink('id of input element')</code></pre>
+<p>Json data will be set as input value. </p>
+<pre><code>{"lat": "40.69785166022129", "lng": "-73.97968099999999", "map_type_id": "hybrid", "zoom": "9"}</code></pre>
+
+<a name="key_1"></a>
+
+## Widgets
+
+
+
+<a name="key_1_0"></a>
+
+### widget_include
+
+<p>Include Google Map resorce js file with the api key and the plugin js file. Edit param google_api_key with your key.</p>
+<pre><code>type: widget
 data:
   plugin: google/maps
   method: include
   data:
-    google_api_key: _my_google_api_key_
-```
+    google_api_key: _my_google_api_key_</code></pre>
+<p>Callback.</p>
+<pre><code>    callback: any_method_when_maps_library_is_loaded</code></pre>
 
-### Callback
-```
-    callback: any_method_when_maps_library_is_loaded
-```
+<a name="key_1_1"></a>
 
-## Map widget
+### widget_map
 
-Apply a Google map. Change style, class, position, zoom, scrollwheel, draggable, type. Set marker with position, title, icon and window. Or use without marker if needed.
-
-<i>Param id has to be a unic element id. Changes style or add a css class. Search on Google for param data/mapTypeId.</i>
-
-### Settings
-
-#### Map center
-Param data/center can have param geocode or lat/lng.
-
-#### Map type
-Param data/mapTypeId can have values ROADMAP, SATELLITE, HYBRID or TERRAIN.
-
-#### Marker
-Param data/marker/-/position  can have param geocode or lat/lng.
-
-#### Marker icon
-Set param data/marker/-/icon to url for use a custom icon.
-
-#### Marker window
-Set param data/marker/-/window/content to any html and the content will show upp when to click on marker. Set param show to true to show windows instantly.
-
-#### GPX
-Add multiple paths via gpx files by including param data/gpx.
-
-#### LatLngBounds
-Set to true to let map center on markers.
-
-```
-type: widget
+<p>Apply a Google map. 
+Change style, class, position, zoom, scrollwheel, draggable, type. Set marker with position, title, icon and window. 
+Or use without marker if needed.
+Param id has to be a unic element id. 
+Changes style or add a css class. 
+Search on Google for param data/mapTypeId.</p>
+<pre><code>type: widget
 data:
   plugin: google/maps
   method: map
@@ -57,25 +61,37 @@ data:
     class: ''
     data:
       center:
-        geocode: 'Pickesjövägen Borås'
+        geocode: 'New York'
       _center_or_by_lat_lng_:
         lat: '56.6777253'
         lng: '12.8145228'
       zoom: 18
       scrollwheel: true
       draggable: true
-      mapTypeId: SATELLITE
-      mapTypeId_example1: ROADMAP
+      mapTypeId: ROADMAP
+      _mapTypeId: SATELLITE, HYBRID or TERRAIN
       LatLngBounds: true
       marker:
         -
           position:
             geocode: 'Pickesjövägen 2 Borås'
+          _position:
+            lat: '56.6777253'
+            lng: '12.8145228'
           title: Borås
           window:
-            content: '<span style="color:black">HTML</span>'
+            content: '&lt;span style="color:black"&gt;HTML&lt;/span&gt;'
             show: true
-```
+          _icon: any_url
+      _gpx:
+        -
+          url: /1.gpx.txt
+        -
+          url: /2.gpx.txt</code></pre>
 
+<a name="key_1_1_0"></a>
 
+#### GPX
+
+<p>One could download gpx files from Runkeeper homepage.</p>
 

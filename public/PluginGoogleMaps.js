@@ -292,8 +292,8 @@ function plugin_google_maps(){
     btn.onclick = function(){
       var c = PluginGoogleMaps.getMap().getCenter();
       document.getElementById(id).value = '';
-      document.getElementById(id).onchange();
       $('#modal_map').modal('hide');
+      document.getElementById('span_map_icon_'+id).innerHTML = '(no position)';
     }
     document.getElementById('modal_map_footer').appendChild(btn);
     /**
@@ -305,8 +305,8 @@ function plugin_google_maps(){
     btn.onclick = function(){
       var c = PluginGoogleMaps.getMap().getCenter();
       document.getElementById(id).value = '{"lat": "'+c.lat()+'", "lng": "'+c.lng()+'", "map_type_id": "'+PluginGoogleMaps.getMap().getMapTypeId()+'", "zoom": "'+PluginGoogleMaps.getMap().getZoom()+'"}';
-      document.getElementById(id).onchange();
       $('#modal_map').modal('hide');
+      document.getElementById('span_map_icon_'+id).innerHTML = '(has position)';
     }
     document.getElementById('modal_map_footer').appendChild(btn);
     /**
@@ -317,6 +317,41 @@ function plugin_google_maps(){
           map: PluginGoogleMaps.getMap(),
           title: 'Hello World!'
         });
+  }
+  this.doInputToMapLink = function(id){
+    /**
+     * form-control
+     */
+    var div = document.createElement('div');
+    div.className = 'form-control';
+    document.getElementById(id).parentNode.appendChild(div);
+    /**
+     * btn
+     */
+    var btn = document.createElement('button');
+    btn.innerHTML = 'Show map';
+    btn.className = 'btn btn-primaryzzz btn-sm';
+    btn.style.float = 'right';
+    btn.onclick = function(){
+      PluginGoogleMaps.showMap(id);
+    }
+    div.appendChild(btn);
+    /**
+     * span
+     */
+    var span = document.createElement('span');
+    span.className = 'text-secondary';
+    if(document.getElementById(id).value){
+      span.innerHTML = '(has position)';
+    }else{
+      span.innerHTML = '(no position)';
+    }
+    span.id = 'span_map_icon_'+id;
+    div.appendChild(span);
+    /**
+     * Hide element
+     */
+    document.getElementById(id).style.display='none';
   }
 }
 var PluginGoogleMaps = new plugin_google_maps();
