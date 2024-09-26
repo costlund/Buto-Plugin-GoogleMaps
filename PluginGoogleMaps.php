@@ -22,7 +22,7 @@ class PluginGoogleMaps{
     /**
      * urls
      */
-    $data->set('data/url_google', 'https://maps.googleapis.com/maps/api/js?language='.$language.'&key='.$google_maps_api_key->get('key').'&callback='.$data->get('data/callback').'&libraries=places');
+    $data->set('data/url_google', 'https://maps.googleapis.com/maps/api/js?language='.$language.'&key='.$google_maps_api_key->get('key').'&callback='.$data->get('data/callback').'&libraries=places&loading=async');
     $data->set('data/url_plugin', '/plugin/google/maps/PluginGoogleMaps.js?t='.wfFilesystem::getFiletime( wfGlobals::getWebDir().'/plugin/google/maps/PluginGoogleMaps.js'));
     /**
      * element
