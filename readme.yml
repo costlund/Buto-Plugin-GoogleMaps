@@ -98,6 +98,11 @@ readme:
                     -
                       url: /2.gpx.txt
             ```
+            Add one position with lat, lng, map type, zoom using json string.
+            ```
+                  json:
+                    position: '{"lat": "56.67499987227003", "lng": "12.858738703640759", "map_type_id": "hybrid", "zoom": "15"}'
+            ```
           item:
             -
               name: GPX

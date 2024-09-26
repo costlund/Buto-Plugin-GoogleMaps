@@ -34,6 +34,21 @@ class PluginGoogleMaps{
   public function widget_map($data){
     wfPlugin::includeonce('wf/array');
     $data = new PluginWfArray($data['data']);
+    /**
+     * 
+     */
+    if($data->get('data/json/position')){
+      $data->set('data/json/position', json_decode($data->get('data/json/position'), true));
+      $data->set('data/center/lat', $data->get('data/json/position/lat'));
+      $data->set('data/center/lng', $data->get('data/json/position/lng'));
+      $data->set('data/marker/0/position/lat', $data->get('data/json/position/lat'));
+      $data->set('data/marker/0/position/lng', $data->get('data/json/position/lng'));
+      $data->set('data/mapTypeId', $data->get('data/json/position/map_type_id'));
+      $data->set('data/zoom', $data->get('data/json/position/zoom'));
+    }
+    /**
+     * 
+     */
     $div_map = wfDocument::createHtmlElement('div', '<img src="/plugin/google/maps/loading.gif">', array('id' => $data->get('id'), 'class' => $data->get('class'), 'style' => $data->get('style')));
     if(wfRequest::get('_time')){
       $script_map = wfDocument::createHtmlElement('script', "PluginGoogleMaps.load(".json_encode($data->get()).");", array('type' => 'text/javascript'));

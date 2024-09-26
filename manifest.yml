@@ -1,5 +1,9 @@
-version: 1.3.6
+version: 1.3.7
 history:
+  1.3.7:
+    date: '2024-09-26'
+    title: Json
+    description: 'Add support to load map with json data.'
   1.3.6:
     date: '2024-09-26'
     title: JS

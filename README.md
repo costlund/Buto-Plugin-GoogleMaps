@@ -100,6 +100,9 @@ data:
           url: /1.gpx.txt
         -
           url: /2.gpx.txt</code></pre>
+<p>To add one position with lat, lng, map type, zoom.</p>
+<pre><code>      json:
+        position: '{"lat": "56.67499987227003", "lng": "12.858738703640759", "map_type_id": "hybrid", "zoom": "15"}'</code></pre>
 
 <a name="key_2_1_0"></a>
 
