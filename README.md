@@ -1,18 +1,31 @@
 # Buto-Plugin-GoogleMaps
 
-<p>Use the include widget only one time with your Google API Key. 
-Then use multiple map widgets. 
-One can omit data/marker if no marker is needed. 
-Go to <a href="https://code.google.com/apis/console">https://code.google.com/apis/console</a> for your key.
-Support pic position via a form.</p>
+<ul>
+<li>Include js with widget_include.</li>
+<li>Set api key in theme settings.</li>
+<li>Go to <a href="https://code.google.com/apis/console">https://code.google.com/apis/console</a> for your key.</li>
+</ul>
 
 <a name="key_0"></a>
+
+## Theme settings
+
+<p>Set reference to api key to buto_data folder.
+One should use one key for development purpose restricted to domain localhost and never deploy it.
+In production using other key with domain restrictions.
+Restrictions is to be set in <a href="https://console.cloud.google.com/google/maps-apis">https://console.cloud.google.com/google/maps-apis</a>. </p>
+<pre><code>plugin:
+  google:
+    maps:
+      google_maps_api_key: 'yml:/../buto_data/theme/[theme]/google_maps_api_key.yml'</code></pre>
+
+<a name="key_1"></a>
 
 ## Usage
 
 
 
-<a name="key_0_0"></a>
+<a name="key_1_0"></a>
 
 ### Form
 
@@ -21,27 +34,26 @@ Support pic position via a form.</p>
 <p>Json data will be set as input value. </p>
 <pre><code>{"lat": "40.69785166022129", "lng": "-73.97968099999999", "map_type_id": "hybrid", "zoom": "9"}</code></pre>
 
-<a name="key_1"></a>
+<a name="key_2"></a>
 
 ## Widgets
 
 
 
-<a name="key_1_0"></a>
+<a name="key_2_0"></a>
 
 ### widget_include
 
-<p>Include Google Map resorce js file with the api key and the plugin js file. Edit param google_api_key with your key.</p>
+<p>Include Google Map resorce js file.</p>
 <pre><code>type: widget
 data:
   plugin: google/maps
   method: include
-  data:
-    google_api_key: _my_google_api_key_</code></pre>
+  data:</code></pre>
 <p>Callback.</p>
 <pre><code>    callback: any_method_when_maps_library_is_loaded</code></pre>
 
-<a name="key_1_1"></a>
+<a name="key_2_1"></a>
 
 ### widget_map
 
@@ -89,7 +101,7 @@ data:
         -
           url: /2.gpx.txt</code></pre>
 
-<a name="key_1_1_0"></a>
+<a name="key_2_1_0"></a>
 
 #### GPX
 

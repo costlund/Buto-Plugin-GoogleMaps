@@ -1,12 +1,23 @@
 readme:
   name: Buto-Plugin-GoogleMaps
   description: |
-    Use the include widget only one time with your Google API Key. 
-    Then use multiple map widgets. 
-    One can omit data/marker if no marker is needed. 
-    Go to https://code.google.com/apis/console for your key.
-    Support pic position via a form.
+    - Include js with widget_include.
+    - Set api key in theme settings.
+    - Go to https://code.google.com/apis/console for your key.
   item:
+    -
+      name: Theme settings
+      description: |
+        Set reference to api key to buto_data folder.
+        One should use one key for development purpose restricted to domain localhost and never deploy it.
+        In production using other key with domain restrictions.
+        Restrictions is to be set in https://console.cloud.google.com/google/maps-apis. 
+        ````
+        plugin:
+          google:
+            maps:
+              google_maps_api_key: 'yml:/../buto_data/theme/[theme]/google_maps_api_key.yml'
+        ````
     -
       name: Usage
       item:
@@ -27,14 +38,13 @@ readme:
         -
           name: widget_include
           description: |
-            Include Google Map resorce js file with the api key and the plugin js file. Edit param google_api_key with your key.
+            Include Google Map resorce js file.
             ```
             type: widget
             data:
               plugin: google/maps
               method: include
               data:
-                google_api_key: _my_google_api_key_
             ```
             Callback.
             ```

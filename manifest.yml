@@ -1,5 +1,9 @@
-version: 1.3.4
+version: 1.3.5
 history:
+  1.3.5:
+    date: '2024-09-26'
+    title: API key
+    description: 'Move api key to buto_data folder.'
   1.3.4:
     date: '2024-09-25'
     title: Form
