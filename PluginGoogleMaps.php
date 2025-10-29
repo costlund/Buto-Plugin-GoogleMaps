@@ -1,5 +1,8 @@
 <?php
 class PluginGoogleMaps{
+  function __construct(){
+    wfPlugin::includeonce('wf/yml');
+  }
   public function widget_include($data){
     /**
      * From theme settings plugin/google/maps.
